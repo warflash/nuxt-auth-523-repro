@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useAuth, useRoute, useFetch, useRequestHeaders } from '#imports'
+const { data: statusData } = await useFetch('/api/status')
 
 const { data, status, lastRefreshedAt, getCsrfToken, getProviders, signIn, signOut, getSession } = useAuth()
 
@@ -14,6 +15,7 @@ const route = useRoute()
 
 <template>
   <div>
+    {{ statusData }}
     <h3>Authentication Overview</h3>
     <p>
       See all available authentication & session information below. Navigate to different sub-pages to test out the app.
